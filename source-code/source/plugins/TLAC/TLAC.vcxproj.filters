@@ -225,6 +225,18 @@
     <ClInclude Include="Input\Bindings\DVLBinding.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Input\RedBoard\RedBoardState.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\RedBoard\RedBoard.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\Bindings\RedBoardBinding.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Input\RedBoard\RedBoardButton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -378,6 +390,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Input\Bindings\DVLBinding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\RedBoard\RedBoard.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Input\Bindings\RedBoardBinding.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

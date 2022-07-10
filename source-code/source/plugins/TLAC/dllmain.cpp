@@ -13,6 +13,7 @@
 #include "Input/DirectInput/Ds4/DualShock4.h"
 #include "Input/DirectInput/GenericUsb/GenericUsbInput.h"
 #include "Input/Divaller/Divaller.h"
+#include "Input/RedBoard/RedBoard.h"
 #include "Components/ComponentsManager.h"
 #include <tchar.h>
 #include <GL/freeglut.h>
@@ -88,6 +89,12 @@ namespace TLAC
 				if (Input::Divaller::TryInitializeInstance())
 					printf("[TLAC] UpdateTick(): Divaller connected and initialized\n");
 			}
+
+			if (!Input::RedBoard::InstanceInitialized())
+			{
+				if (Input::RedBoard::TryInitializeInstance())
+					printf("[TLAC] UpdateTick(): RedBoard/Hori connected and initialized\n");
+			}
 		}
 
 		ComponentsManager.Update();
@@ -127,6 +134,15 @@ namespace TLAC
 					printf("[TLAC] UpdateTick(): Divaller connection lost\n");
 				}
 			}
+			
+			if (Input::RedBoard::GetInstance() != nullptr)
+			{
+				if (!Input::RedBoard::GetInstance()->PollInput())
+				{
+					Input::RedBoard::DeleteInstance();
+					printf("[TLAC] UpdateTick(): RedBoard/Hori connection lost\n");
+				}
+			}
 
 			ComponentsManager.UpdateInput();
 		}
@@ -163,6 +179,15 @@ namespace TLAC
 				{
 					Input::Divaller::DeleteInstance();
 					printf("[TLAC] UpdateTick(): Divaller connection lost\n");
+				}
+			}
+
+			if (Input::RedBoard::GetInstance() != nullptr)
+			{
+				if (!Input::RedBoard::GetInstance()->PollInput())
+				{
+					Input::RedBoard::DeleteInstance();
+					printf("[TLAC] UpdateTick(): RedBoard/Hori connection lost\n");
 				}
 			}
 		}

@@ -9,6 +9,7 @@
 #include "../../Input/Bindings/MouseBinding.h"
 #include "../../Input/Bindings/Ds4Binding.h"
 #include "../../Input/Bindings/DVLBinding.h"
+#include "../../Input/Bindings/RedBoardBinding.h"
 #include "../../Input/KeyConfig/Config.h"
 #include "../../Utilities/Operations.h"
 #include "../../Utilities/EnumBitwiseOperations.h"
@@ -117,6 +118,15 @@ namespace TLAC::Components
 		ShikakuBinding->AddBinding(new DivallerBinding(DivallerButton::DVL_SQUARE));
 		BatsuBinding->AddBinding(new DivallerBinding(DivallerButton::DVL_CROSS));
 		MaruBinding->AddBinding(new DivallerBinding(DivallerButton::DVL_CIRCLE));
+		
+		TestBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_TEST));
+		ServiceBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_SRV));
+		CoinBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_COIN));
+		StartBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_START));
+		SankakuBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_TRIANGLE));
+		ShikakuBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_SQUARE));
+		BatsuBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_CROSS));
+		MaruBinding->AddBinding(new RedBoardBinding(RedBoardButton::RB_CIRCLE));
 	}
 
 	void InputEmulator::Update()

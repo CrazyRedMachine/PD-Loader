@@ -76,7 +76,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableUAC>false</EnableUAC>
-      <AdditionalDependencies>XINPUT9_1_0.LIB;dinput8.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Winusb.lib;Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>XINPUT9_1_0.LIB;dinput8.lib;dxguid.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;comdlg32.lib;advapi32.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;odbc32.lib;odbccp32.lib;Winusb.lib;hid.lib;Setupapi.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <IgnoreSpecificDefaultLibraries>Xinput.h</IgnoreSpecificDefaultLibraries>
       <AdditionalLibraryDirectories>..\..\..\dependencies\detours\lib;..\..\..\dependencies\freeglut\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>-d2:-FH4- %(AdditionalOptions)</AdditionalOptions>
@@ -140,6 +140,7 @@
     <ClInclude Include="Input\Bindings\Binding.h" />
     <ClInclude Include="Input\Bindings\Ds4Binding.h" />
     <ClInclude Include="Input\Bindings\DVLBinding.h" />
+    <ClInclude Include="Input\Bindings\RedBoardBinding.h" />
     <ClInclude Include="Input\Bindings\GuBinding.h" />
     <ClInclude Include="Input\Bindings\IInputBinding.h" />
     <ClInclude Include="Input\Bindings\KeyboardBinding.h" />
@@ -158,6 +159,9 @@
     <ClInclude Include="Input\Divaller\Divaller.h" />
     <ClInclude Include="Input\Divaller\DivallerButton.h" />
     <ClInclude Include="Input\Divaller\DivallerState.h" />
+    <ClInclude Include="Input\RedBoard\RedBoard.h" />
+    <ClInclude Include="Input\RedBoard\RedBoardButton.h" />
+    <ClInclude Include="Input\RedBoard\RedBoardState.h" />
     <ClInclude Include="Input\IInputDevice.h" />
     <ClInclude Include="Input\Keyboard\Keyboard.h" />
     <ClInclude Include="Input\Keyboard\KeyboardState.h" />
@@ -202,6 +206,7 @@
     <ClCompile Include="Input\Bindings\Binding.cpp" />
     <ClCompile Include="Input\Bindings\Ds4Binding.cpp" />
     <ClCompile Include="Input\Bindings\DVLBinding.cpp" />
+    <ClCompile Include="Input\Bindings\RedBoardBinding.cpp" />
     <ClCompile Include="Input\Bindings\GuBinding.cpp" />
     <ClCompile Include="Input\Bindings\KeyboardBinding.cpp" />
     <ClCompile Include="Input\Bindings\MouseBinding.cpp" />
@@ -215,6 +220,7 @@
     <ClCompile Include="Input\DirectInput\GenericUsb\GenericUsbInput.cpp" />
     <ClCompile Include="Input\DirectInput\GenericUsb\GuState.cpp" />
     <ClCompile Include="Input\Divaller\Divaller.cpp" />
+    <ClCompile Include="Input\RedBoard\RedBoard.cpp" />
     <ClCompile Include="Input\Keyboard\Keyboard.cpp" />
     <ClCompile Include="Input\Keyboard\KeyboardState.cpp" />
     <ClCompile Include="Input\KeyConfig\Config.cpp" />

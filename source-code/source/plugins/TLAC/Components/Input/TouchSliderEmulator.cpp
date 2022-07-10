@@ -8,6 +8,7 @@
 #include "../../Input/KeyConfig/Config.h"
 #include "../../Input/DirectInput/Ds4/DualShock4.h"
 #include "../../Input/Divaller/Divaller.h"
+#include "../../Input/RedBoard/RedBoard.h"
 #include "../../FileSystem/ConfigFile.h"
 #include "../../Utilities/Math.h"
 #include <algorithm>
@@ -98,6 +99,13 @@ namespace TLAC::Components
 
 	void TouchSliderEmulator::UpdateInput()
 	{
+		/* Next condition fails on some systems causing unresponsive slider, therefore bumping RedBoard/Hori detection on top */
+		if (Input::RedBoard::GetInstance() != nullptr)
+		{
+			ApplyBitfieldState(Input::RedBoard::GetInstance()->GetSlider());
+			return;
+		}
+
 		if (!componentsManager->GetUpdateGameInput() || componentsManager->IsDwGuiActive() || (!enableInMenus && !(*(GameState*)CURRENT_GAME_STATE_ADDRESS == GS_GAME && *(SubGameState*)CURRENT_GAME_SUB_STATE_ADDRESS == SUB_GAME_MAIN)))
 			return;
 
@@ -145,7 +153,7 @@ namespace TLAC::Components
 
 	void TouchSliderEmulator::OnFocusLost()
 	{
-		if (usePs4OfficialSlider || Input::Divaller::GetInstance() != nullptr)
+		if (usePs4OfficialSlider || Input::Divaller::GetInstance() != nullptr || Input::RedBoard::GetInstance() != nullptr)
 			sliderState->ResetSensors(TouchSliderState::SENSOR_SET_MODE_RAW);
 		else
 			sliderState->ResetSensors(TouchSliderState::SENSOR_SET_MODE_SECTIONS);
